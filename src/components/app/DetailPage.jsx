@@ -5,17 +5,18 @@ import fetch from 'superagent';
 export default class DetailPage extends Component {
 
     state = {
-      characterResults: {},
+      character: [],
       Loading: true,
     }
 
     componentDidMount = async() => {
       // eslint-disable-next-line max-len
-      const response = await fetch.get(`https://rickandmortyapi.com/api/character/${this.props.match.params.name}`);
-
-      this.setState({ characterResults: response.body, Loading: false });
+      const response = await fetch(`https://rickandmortyapi.com/api/character/${this.props.match.params.id}`);
+      console.log(response)
+      this.setState({ character: response.body, Loading: false });
     }
 
+    
     render() {
       
       return (
@@ -25,7 +26,7 @@ export default class DetailPage extends Component {
             :
             <div className="detail">
 
-              <h1>{this.state.characterResults.name}</h1>
+              <h1>{this.state.character.id}</h1>
 
             </div>
           }

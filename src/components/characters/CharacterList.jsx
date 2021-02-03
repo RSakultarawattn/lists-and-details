@@ -1,13 +1,18 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import Character from './Character';
+import { Link } from 'react-router-dom';
+import DetailPage from '../app/DetailPage';
 
 const CharacterList = ({ characters }) => {
-  const characterElements = characters.map(character => (
-    <li key={character.id}>
-      <Character {...character} />
-    </li>
-
+  const characterElements = characters.map(character => ( 
+    <>
+      <Link to={`/DetailPage/${character.id}`}>
+        <li key={character.id}>
+          <Character {...character} />
+        </li>
+      </Link>
+    </>
   ));
 
   return (
@@ -24,3 +29,5 @@ CharacterList.propTypes = {
     image: propTypes.string.isRequired
   })).isRequired
 };
+
+export default CharacterList;

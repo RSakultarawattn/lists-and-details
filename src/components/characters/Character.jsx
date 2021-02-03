@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Character = ({ name, image }) => (
   <figure>
@@ -9,8 +9,8 @@ const Character = ({ name, image }) => (
 );
 
 Character.propTypes = {
-  name: propTypes.string.isRequired,
-  image: propTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 };
 
 export default Character;
